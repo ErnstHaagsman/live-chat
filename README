@@ -1,0 +1,23 @@
+Live-chat Example
+=================
+
+This project shows you how to create a very simple real-time chat app in just JavaScript. Using AngularJS on the
+frontend, express as a server, and SockJS for real-time communication.
+
+How to install
+--------------
+
+Make sure you have node.js installed (http://nodejs.org/)
+Clone the repository to an appropriate location
+Open a terminal window (git bash works really well on windows)
+Run `npm install`, then `bower install`
+Start the server using `npm start`
+Visit the chat app by going to `http://localhost:3000`
+
+Learning points
+---------------
+
+ - Server-side Handlebars and client-side AngularJS don't combine. They use the same placeholders for data
+ - There is a difference between `exports` and `module.exports`. The `chat` EventEmitter didn't work with `exports`,
+   changing it to `module.exports` magically resolved the issue.
+ - If you're using SockJS, it is necessary to always explicitly encode and decode your objects to/from JSON
