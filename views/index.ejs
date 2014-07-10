@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head lang="en">
     <meta charset="UTF-8">
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css"/>
 </head>
-<body>
-    <input type="text" name="nickname" id="nickname" placeholder="Your nickname"/>
-    <input type="text" name="message" id="message" placeholder="Message, press <enter> to send"/>
-    
-    <div ng-app>
+<body ng-controller="ChatController">
+    <form ng-submit="send_message()">
+        <input ng-model="nickname" type="text" name="nickname" id="nickname" placeholder="Your nickname" required/><br />
+        <input ng-model="message" type="text" name="message" id="message" placeholder="Message, press <enter> to send" required/>
+        <input type="submit" value="Send"/>
+    </form>
 
+    <div style="margin-top: 30px;">
+        <div ng-repeat="message in messages">
+            <strong>{{message.nickname}}</strong>
+            <p>{{message.text}}</p>
+        </div>
     </div>
-
+    
     <script src="/components/angular/angular.js"></script>
+    <script src="/js/client.js"></script>
 </body>
 </html>
